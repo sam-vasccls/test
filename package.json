@@ -1,0 +1,28 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build - Builds your application for production. This command is used to prepare your application for deployment. It will generate static files for your application in the dist folder.",
+    "dev": "nuxt dev - Starts the development server. This command will start the development server for your application. It will also start a hot-reloading server on localhost:3000.",
+    "generate": "nuxt generate - Generates static files for your application. This command is used to generate static files for your application. It will generate static files for your application in the dist folder.",
+    "preview": "nuxt preview - Starts a preview server. This command will start a preview server for your application. It will also start a hot-reloading server on localhost:3000.",
+    "postinstall": "nuxt prepare - Prepares your application for development. This command is used to prepare your application for development. It will install all necessary dependencies and set up your application for development."
+  },
+  "dependencies": {
+    "@nuxt/icon": "^1.0.0",
+    "@pinia/nuxt": "^0.5.1",
+    "eslint": "^9.5.0",
+    "jspdf": "^2.5.1",
+    "nuxt": "^3.12.1",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.3"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "daisyui": "^4.12.2",
+    "nuxt-icon": "^0.6.10",
+    "sass": "^1.77.6"
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "nuxt.isNuxtApp": true,
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#0d4ea2",
+        "activityBar.background": "#0d4ea2",
+        "activityBar.foreground": "#f7f7f7",
+        "activityBar.inactiveForeground": "#f7f7f799",
+        "activityBarBadge.background": "#f7f7f7",
+        "activityBarBadge.foreground": "#0d4ea2",
+        "commandCenter.border": "#f7f7f799",
+        "sash.hoverBorder": "#0d4ea2",
+        "statusBar.background": "#2f649a",
+        "statusBar.foreground": "#f7f7f7",
+        "statusBarItem.hoverBackground": "#0d4ea2",
+        "statusBarItem.remoteBackground": "#2f649a",
+        "statusBarItem.remoteForeground": "#f7f7f7",
+        "titleBar.activeBackground": "#2f649a",
+        "titleBar.activeForeground": "#f7f7f7",
+        "titleBar.inactiveBackground": "#2f649a99",
+        "titleBar.inactiveForeground": "#f7f7f799"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "prettier.configPath": "./.prettierrc",
+    "prettier.ignorePath": "./.prettierignore"
+}

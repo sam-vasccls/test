@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+ES+Deco:wght@100..400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//scrollbar
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    overflow: hidden;
+
+    &-track {
+        background: var(--primary);
+        border-radius: 50px;
+    }
+
+    &-thumb {
+        background: var(--color5);
+        border-radius: 50px;
+
+        &:hover {
+            background: var(--secondary);
+        }
+    }
+}
+
+html,
+body,
+#__nuxt {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.icon {
+    margin-right: 0.5rem;
+}
+
+button,
+a,
+input {
+    cursor: pointer;
+}
+
+// h1, h2, h3, h4, h5, h6, a, p, span, textarea {
+
+
+
+h1 {
+    padding-bottom: 1rem;
+    font-size: 28px;
+}
+
+h3 {
+    padding-bottom: 0.5rem;
+}
+
+// Utility classes
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.invisible {
+    opacity: 0;
+}
+
+.main-btn {
+    padding: .4rem 1rem;
+    border-radius: 8px;
+    color: var(--secondary);
+    transform: translateY(-5px);
+
+    transition: 300ms;
+}
