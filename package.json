@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare - Prepares your application for development. This command is used to prepare your application for development. It will install all necessary dependencies and set up your application for development."
   },
   "dependencies": {
-    "@nuxt/icon": "^1.0.0",
+    "@nuxt/icon": "^1.8.2",
     "@pinia/nuxt": "^0.5.1",
     "eslint": "^9.5.0",
     "jspdf": "^2.5.1",
