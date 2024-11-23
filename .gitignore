@@ -10,3 +10,4 @@ dist
 pyTest.py
 coursera.js
 .prettierrc
+test.ts
