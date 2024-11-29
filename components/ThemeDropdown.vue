@@ -1,7 +1,6 @@
 <template>
-    <div class="dropdown">
-        <div ref="target" class="dropdown__overlay" v-if="isDropdownOpen" @click="openDropdown"></div>
-        <button @click="openDropdown" class="m-1 dropdown__btn btn btn-neutral-content">
+    <div ref="dropdownElement" class="dropdown" @click.stop="toggleDropdown">
+        <button class="m-1 dropdown__btn btn btn-neutral-content">
             <Icon class="theme-icon" name="material-symbols:partly-cloudy-day" />
             Themes
         </button>
@@ -51,12 +50,12 @@ onBeforeMount(() => {
     setTheme(currentTheme)
 })
 
-const target = ref(null);
+const dropdownElement = ref(null);
 
 const isDropdownOpen = ref(false);
 const activeTheme = ref("default");
 
-onClickOutside(target, () => openDropdown());
+onClickOutside(dropdownElement, () => isDropdownOpen.value = false);
 
 function setTheme(theme) {
     activeTheme.value = theme;
@@ -65,7 +64,7 @@ function setTheme(theme) {
     isDropdownOpen.value = false;
 };
 
-function openDropdown() {
+function toggleDropdown() {
     isDropdownOpen.value = !isDropdownOpen.value;
 }
 </script>
