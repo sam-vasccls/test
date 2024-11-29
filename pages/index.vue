@@ -101,37 +101,29 @@ function applyStyles(styles) {
         fontFamily: styles[0].value,
         fontSize: `${styles[1].value}px`,
     }
-    console.log(userStyles)
 }
 
 function openOptions() {
     isOptionsOpen.value = !isOptionsOpen.value
 }
 
-// Random Scene Creator ------------------------------------------------
+// RANDOM SCENE GENERATOR ------------------------------------------------
 
 const randomStoryCreator = ref('')
 
 function getRandomConcepts(arr1, arr2, arr3) {
-    // Função para selecionar um elemento aleatório de um array
     function getRandomConcept(array) {
         const randomIndex = Math.floor(Math.random() * array.length);
-        console.log(randomIndex)
-        console.log(array[randomIndex])
         return array[randomIndex];
     }
 
-    // Seleciona um concepto aleatório de cada array
     const concept1 = getRandomConcept(arr1);
     const concept2 = getRandomConcept(arr2);
     const concept3 = getRandomConcept(arr3);
 
-    // Retorna um novo array com os elementos selecionados
-    // randomStoryCreator.value = `Goal: ${concept1}, Obstacle/Problem: ${obstacle}, Resolution/Conflict: ${resolution}`
     randomStoryCreator.value = [concept1, concept2, concept3]
 }
 
-// Exemplo de uso:
 const goal = ["Want", "Desire", "Long for", "Need", "Think about", "Plan something", "Discuss", "Achieve something", "Hide something", "Confront", "Do harm", "Protect someone", "Seek revenge", "Escape", "Discover a secret", "Prove oneself", "Mystery", "Action", "Discover", "Hide", "Seek", "Escape", "Protect", "Reveal", "Confront", "Build", "Learn", "Follow", "Challenge", "Comfort", "Destroy", "Create", "Overcome", , "Find", "Pursue", "Defy", "Heal", "Explore", "Share", "Remember", "Reach", "Protect", "Discover"];
 
 const obstacle = ["External opposition", "Internal conflict", "Misunderstanding", "Physical barrier", "Emotional turmoil", "Miscommunication", "Unforeseen complication", "Fear of exposure", "Competing interests", "Lack of resources", "Betrayal", "Conflicting goals", "Time constraint", "Environmental challenge", "Personal doubt", "Investigation", "Reaction", "An illusion", "A shadow", "A locked door", "A storm", "A ticking clock", "A secret", "An unexpected ally", "A shaky foundation", "A forgotten memory", "A misleading clue", "A powerful foe", "An open wound", "A reflection", "A missing piece", "A haunting voice", "A hidden message", "A fading light", "A locked gate", "A broken promise", "An endless horizon", "A guarded heart", "A distant echo", "A steep climb", "A fragile bond", "A web of lies", "A ticking bomb", "A threat of violence", "An uncomfortable setting or situation", "Disagreement between characters", "Clashing goals", "Unexpected arrival of another character", "Heightened stakes", "Any kind of surprise"];
@@ -148,7 +140,6 @@ const resolution = ["Good outcome", "Unexpected outcome", "Bad outcome", "Doubt"
         flex-direction: column;
         justify-content: center;
         width: 350px;
-        background-color: blue;
         top: 50%;
         bottom: 50%;
         right: 30px;
@@ -157,8 +148,6 @@ const resolution = ["Good outcome", "Unexpected outcome", "Bad outcome", "Doubt"
             background-color: var(--color3);
         }
     }
-
-
 
     &__scenes {
         padding: .8rem .8rem;
