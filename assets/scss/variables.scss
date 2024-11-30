@@ -36,44 +36,44 @@ $gray99: hsl(0, 0%, 99%);
 :root {
     --primary: hsl(0, 0%, 97%);
     --secondary: hsl(0, 0%, 40%);
-    --loading-opacity: 0.2; // loading
-    --color-bg: hsl(0, 0%, 93%); // color3
-    --color-text-primary: hsl(0, 0%, 30%); // color4
-    --color-accent: hsl(100, 0%, 70%); // color5
-    --color-border: hsl(100, 0%, 89%); // color6
-    --color-highlight: hsl(0, 0%, 95%); // color7
-    --color-hover: hsl(210, 100%, 0%, 0.07); // color8
+    --loading-opacity: 0.2;
+    --color-bg: hsl(0, 0%, 93%);
+    --color-text-primary: hsl(0, 0%, 30%);
+    --color-accent: hsl(100, 0%, 70%);
+    --color-border: hsl(100, 0%, 89%);
+    --color-highlight: hsl(0, 0%, 95%);
+    --color-hover: hsl(210, 100%, 0%, 0.07);
 }
 
 [data-theme="dark"] {
     --primary: hsl(0, 0%, 15%);
     --secondary: hsl(0, 0%, 95%);
-    --loading-opacity: 0.2; // loading
-    --color-bg: hsl(0, 0%, 25%); // color3
-    --color-text-primary: hsl(0, 0%, 95%); // color4
-    --color-accent: hsl(100, 0%, 50%); // color5
-    --color-hover: hsl(210, 0%, 0%, 0.2); // color8
-    --color-border: hsl(100, 0%, 30%, 0.5); // color9
+    --loading-opacity: 0.2;
+    --color-bg: hsl(0, 0%, 25%);
+    --color-text-primary: hsl(0, 0%, 95%);
+    --color-accent: hsl(100, 0%, 50%);
+    --color-hover: hsl(210, 0%, 0%, 0.2);
+    --color-border: hsl(100, 0%, 30%, 0.5);
 }
 
 [data-theme="pink"] {
     --primary: hsl(340, 100%, 90%);
     --secondary: hsl(340, 100%, 30%);
-    --loading-opacity: 0.2; // loading
-    --color-bg: hsl(340, 100%, 95%); // color3
-    --color-text-primary: hsl(340, 100%, 60%); // color4
-    --color-accent: hsl(340, 100%, 70%); // color5
-    --color-border: hsl(340, 100%, 80%); // color6
-    --color-hover: hsl(340, 100%, 50%, 0.2); // color8
+    --loading-opacity: 0.2;
+    --color-bg: hsl(340, 100%, 95%);
+    --color-text-primary: hsl(340, 100%, 60%);
+    --color-accent: hsl(340, 100%, 70%);
+    --color-border: hsl(340, 100%, 80%);
+    --color-hover: hsl(340, 100%, 50%, 0.2);
 }
 
 [data-theme="blue"] {
     --primary: hsl(210, 100%, 95%);
     --secondary: hsl(210, 100%, 30%);
     --loading-opacity: 0.2;
-    --color-bg: hsl(210, 100%, 90%); // color3
-    --color-border: hsl(210, 100%, 80%); // color6
-    --color-accent: hsl(210, 100%, 70%); // color5
-    --color-text-primary: hsl(210, 100%, 60%); // color4
-    --color-hover: hsl(210, 100%, 50%, 0.2); // color8
+    --color-bg: hsl(210, 100%, 90%);
+    --color-border: hsl(210, 100%, 80%);
+    --color-accent: hsl(210, 100%, 70%);
+    --color-text-primary: hsl(210, 100%, 60%);
+    --color-hover: hsl(210, 100%, 50%, 0.2);
 }
