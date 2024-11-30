@@ -1,93 +1,79 @@
-$n100: #fff;
-$n0: #000;
+$gray100: #fff;
+$gray0: #000;
 
-$n5: hsl(0, 0%, 5%);
-$n10: hsl(0, 0%, 10%);
-$n15: hsl(0, 0%, 15%);
-$n20: hsl(0, 0%, 20%);
-$n25: hsl(0, 0%, 25%);
-$n30: hsl(0, 0%, 30%);
-$n35: hsl(0, 0%, 35%);
-$n40: hsl(0, 0%, 40%);
-$n45: hsl(0, 0%, 45%);
-$n50: hsl(0, 0%, 50%);
-$n55: hsl(0, 0%, 55%);
-$n60: hsl(0, 0%, 60%);
-$n65: hsl(0, 0%, 65%);
-$n70: hsl(0, 0%, 70%);
-$n75: hsl(0, 0%, 75%);
-$n80: hsl(0, 0%, 80%);
-$n85: hsl(0, 0%, 85%);
-$n90: hsl(0, 0%, 90%);
-$n91: hsl(0, 0%, 91%);
-$n92: hsl(0, 0%, 92%);
-$n93: hsl(0, 0%, 93%);
-$n94: hsl(0, 0%, 94%);
-$n95: hsl(0, 0%, 95%);
-$n96: hsl(0, 0%, 96%);
-$n97: hsl(0, 0%, 97%);
-$n98: hsl(0, 0%, 98%);
-$n99: hsl(0, 0%, 99%);
+$gray5: hsl(0, 0%, 5%);
+$gray10: hsl(0, 0%, 10%);
+$gray15: hsl(0, 0%, 15%);
+$gray20: hsl(0, 0%, 20%);
+$gray25: hsl(0, 0%, 25%);
+$gray30: hsl(0, 0%, 30%);
+$gray35: hsl(0, 0%, 35%);
+$gray40: hsl(0, 0%, 40%);
+$gray45: hsl(0, 0%, 45%);
+$gray50: hsl(0, 0%, 50%);
+$gray55: hsl(0, 0%, 55%);
+$gray60: hsl(0, 0%, 60%);
+$gray65: hsl(0, 0%, 65%);
+$gray70: hsl(0, 0%, 70%);
+$gray75: hsl(0, 0%, 75%);
+$gray80: hsl(0, 0%, 80%);
+$gray85: hsl(0, 0%, 85%);
+$gray90: hsl(0, 0%, 90%);
+$gray91: hsl(0, 0%, 91%);
+$gray92: hsl(0, 0%, 92%);
+$gray93: hsl(0, 0%, 93%);
+$gray94: hsl(0, 0%, 94%);
+$gray95: hsl(0, 0%, 95%);
+$gray96: hsl(0, 0%, 96%);
+$gray97: hsl(0, 0%, 97%);
+$gray98: hsl(0, 0%, 98%);
+$gray99: hsl(0, 0%, 99%);
 
 // ----------------------------
 //          THEMES
 // ----------------------------
 
 :root {
-  --primary: hsl(0, 0%, 97%);
-  --secondary: hsl(0, 0%, 40%);
-  --loading: hsl(0, 0%, 40%, 0.2);
-  --options: hsl(0, 0%, 93%, 0.2);
-  --color3: hsl(0, 0%, 93%);
-  --color4: hsl(0, 0%, 30%);
-  --color5: hsl(100, 0%, 70%);
-  --color6: hsl(210, 0%, 30%, 0.3);
-  --color7: hsl(0, 0%, 95%);
-  --color8: hsl(210, 100%, 0%, .07);
+    --primary: hsl(0, 0%, 97%);
+    --secondary: hsl(0, 0%, 40%);
+    --loading-opacity: 0.2; // loading
+    --color-bg: hsl(0, 0%, 93%); // color3
+    --color-text-primary: hsl(0, 0%, 30%); // color4
+    --color-accent: hsl(100, 0%, 70%); // color5
+    --color-border: hsl(100, 0%, 89%); // color6
+    --color-highlight: hsl(0, 0%, 95%); // color7
+    --color-hover: hsl(210, 100%, 0%, 0.07); // color8
 }
 
-[data-theme='dark'] {
-  --primary: hsl(0, 0%, 15%);
-  --secondary: hsl(0, 0%, 95%);
-  --loading: hsl(0, 0%, 95%, 0.2);
-  --options: hsl(0, 0%, 93%, 0.2);
-  --color3: hsl(0, 0%, 25%);
-  --color4: hsl(0, 0%, 95%);
-  --color5: hsl(100, 0%, 50%);
-  --color9: hsl(100, 0%, 30%, 0.5);
-  --color8: hsl(210, 0%, 0%, .2);
+[data-theme="dark"] {
+    --primary: hsl(0, 0%, 15%);
+    --secondary: hsl(0, 0%, 95%);
+    --loading-opacity: 0.2; // loading
+    --color-bg: hsl(0, 0%, 25%); // color3
+    --color-text-primary: hsl(0, 0%, 95%); // color4
+    --color-accent: hsl(100, 0%, 50%); // color5
+    --color-hover: hsl(210, 0%, 0%, 0.2); // color8
+    --color-border: hsl(100, 0%, 30%, 0.5); // color9
 }
 
-[data-theme='pink'] {
-  --primary: hsl(340, 100%, 90%);
-  --secondary: hsl(340, 100%, 30%);
-  --loading: hsl(340, 100%, 30%, 0.2);
-  --color3: hsl(340, 100%, 95%);
-  --color6: hsl(340, 100%, 80%);
-  --color5: hsl(340, 100%, 70%);
-  --color4: hsl(340, 100%, 60%);
-  --color8: hsl(340, 100%, 50%, .2);
-
+[data-theme="pink"] {
+    --primary: hsl(340, 100%, 90%);
+    --secondary: hsl(340, 100%, 30%);
+    --loading-opacity: 0.2; // loading
+    --color-bg: hsl(340, 100%, 95%); // color3
+    --color-text-primary: hsl(340, 100%, 60%); // color4
+    --color-accent: hsl(340, 100%, 70%); // color5
+    --color-border: hsl(340, 100%, 80%); // color6
+    --color-hover: hsl(340, 100%, 50%, 0.2); // color8
 }
 
-[data-theme='blue'] {
-  --primary: hsl(210, 100%, 95%);
-  --secondary: hsl(210, 100%, 30%);
-  --loading: hsl(210, 100%, 30%, 0.2);
-  --color3: hsl(210, 100%, 90%);
-  --color6: hsl(210, 100%, 80%);
-  --color5: hsl(210, 100%, 70%);
-  --color4: hsl(210, 100%, 60%);
-  --color8: hsl(210, 100%, 50%, .2);
-
+[data-theme="blue"] {
+    --primary: hsl(210, 100%, 95%);
+    --secondary: hsl(210, 100%, 30%);
+    --loading-opacity: 0.2;
+    --color-bg: hsl(210, 100%, 90%); // color3
+    --color-border: hsl(210, 100%, 80%); // color6
+    --color-accent: hsl(210, 100%, 70%); // color5
+    --color-text-primary: hsl(210, 100%, 60%); // color4
+    --color-hover: hsl(210, 100%, 50%, 0.2); // color8
 }
-
-
-/*
-
-  WAS FINISHING IMPLEMENTING NEW LINTERS FOR SHIPIT AND DELTA HEALTH,
-  ON HAVING THE TRAINING WITH BERNARDO AND JULIO WAS REALLY NICE AS WELL
-
-
-
-*/

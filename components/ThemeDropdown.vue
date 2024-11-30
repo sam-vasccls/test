@@ -1,6 +1,6 @@
 <template>
     <div ref="dropdownElement" class="dropdown" @click.stop="toggleDropdown">
-        <button class="m-1 dropdown__btn btn btn-neutral-content">
+        <button class="m-1 dropdown__btn btn dropdown__button">
             <Icon class="theme-icon" name="material-symbols:partly-cloudy-day" />
             Themes
         </button>
@@ -74,9 +74,17 @@ function toggleDropdown() {
     position: absolute;
     color: var(--secondary);
     top: 1rem;
+    background-color: transparent;
     right: 2rem;
 
-    &__btn,
+    &__button {
+        background-color: var(--color-bg);
+        border: none;
+
+        &:hover {}
+    }
+
+    &__button,
     &__content {
         z-index: 2;
     }
@@ -90,7 +98,7 @@ function toggleDropdown() {
         right: 0.2rem;
         padding: 0.7rem;
         border-radius: 8px;
-        background-color: var(--color3)
+        background-color: var(--color-bg)
     }
 
     &__option {
@@ -101,7 +109,7 @@ function toggleDropdown() {
         cursor: pointer;
 
         &:hover {
-            background-color: var(--color8);
+            background-color: var(--color-hover);
         }
 
         & div {

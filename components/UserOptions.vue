@@ -1,17 +1,18 @@
 <template>
     <form @submit.prevent="emits('apply:styles', styles)" class="user-options shadow">
-        <section :class="[isOptionsOpen ? 'user-options__open' : 'user-options__closed']">
-            <div class="user-options__title-wrapper" @click="emits('toggle:options')">
+        <section :class="[isOptionsOpen ? 'user-options__open' : 'user-options__closed']" @click.stop="openOptions"
+            ref="userOptions">
+            <div :class="['user-options__title-wrapper', { 'user-options__title-wrapper__open': isOptionsOpen }]"
+                @click.stop="closeOptions">
                 <h2 class="user-options__title-wrapper__title">User Options</h2>
                 <Icon
                     :class="['user-options__title-wrapper__icon', isOptionsOpen ? 'user-options__title-wrapper__icon-open' : '']"
                     name="material-symbols:arrow-drop-down-circle-outline" />
             </div>
-            <span class="user-options__division-line"></span>
 
             <section class="user-options__font-size" @click.stop>
                 <h3>Font Size:</h3>
-                <input type="number" v-model="userFontSize">
+                <input class="user-options__font-size__input" type="number" v-model="userFontSize" min="8" max="40">
             </section>
 
             <!--
@@ -22,24 +23,19 @@
 
             <fieldset class="user-options__font-family" @click.stop>
                 <h3 for="fontFamily">Font Family:</h3>
-                <div class="user-options__font-family__itens">
-                    <input type="radio" id="noto" v-model="userFontFamily" name="font" value="Noto Sans">
-                    <label for="noto">Noto Sans</label>
-                </div>
-                <div class="user-options__font-family__itens">
-                    <input type="radio" id="arial" v-model="userFontFamily" name="font" value="Arial">
-                    <label for="arial">Arial</label>
-                </div>
-                <div class="user-options__font-family__itens">
-                    <input type="radio" id="opensans" v-model="userFontFamily" name="font" value="Opens Sans">
-                    <label for="opensans">Open Sans</label>
-                </div>
-                <div class="user-options__font-family__itens">
-                    <input type="radio" id="playwrite" v-model="userFontFamily" name="font" value="Playwrite ES Deco">
-                    <label for="playwrite">Playwrite España Decorativa</label>
+                <div class="user-options__font-family__itens" v-for="(font, index) in fonts" :key="index">
+                    <input type="radio" :id="font" v-model="userFontFamily" name="fontFamily" :value="font"
+                        class="visually-hidden">
+                    <label :for="font" class="user-options__font-family__itens__label">
+                        <span class="user-options__font-family__itens__label--radio">
+                            <span :class="{ 'active-font': font === userFontFamily }" />
+                        </span>
+                        {{ font }}
+                    </label>
                 </div>
             </fieldset>
-            <button class="user-options__main-btn" @click="playActiveAnimation" @click.stop>
+            <button class="user-options__main-btn" @click="playActiveAnimation" @click.stop
+                :disabled="userFontSize > 40 || userFontSize < 8">
                 <div class="active-button"></div>
                 <span>
                     Apply Changes
@@ -50,37 +46,37 @@
 </template>
 
 <script setup>
-import { ref, toRefs } from '#imports'
+import { ref } from '#imports'
+import { onClickOutside } from "@vueuse/core";
 
 const userFontSize = ref(14)
 const userFontFamily = ref('Noto Sans')
+const fonts = ['Noto Sans', 'Arial', 'Open Sans', 'Playwrite ES Deco']
+const isOptionsOpen = ref(false)
+const userOptions = ref(null)
 
 const styles = [
     userFontFamily,
     userFontSize
 ]
 
-const props = defineProps({
-    isOptionsOpen: {
-        type: Boolean,
-        default: false
-    },
-})
+onClickOutside(userOptions, () => isOptionsOpen.value = false)
 
 const emits = defineEmits(['apply:styles', 'toggle:options'])
 
-const { isOptionsOpen } = toRefs(props)
-
-
 function openOptions() {
+    if (isOptionsOpen.value) return
+    isOptionsOpen.value = true
+}
+
+function closeOptions() {
     isOptionsOpen.value = !isOptionsOpen.value
 }
 
 // ANIMATION
-
 function playActiveAnimation() {
     const button = document.querySelector('.active-button');
-    button.classList.add('active-button-animation', true);
+    button.classList.add('active-button-animation');
     setTimeout(() => button.classList.remove('active-button-animation', false), 300);
 }
 
@@ -91,7 +87,7 @@ function playActiveAnimation() {
     display: flex;
     flex-direction: column;
     z-index: 5;
-    background-color: var(--loading);
+    background-color: var(--color-bg);
     position: absolute;
     user-select: none;
     font-size: 0.875rem;
@@ -124,8 +120,13 @@ function playActiveAnimation() {
         justify-content: center;
         width: 100%;
         gap: .5rem;
-        transition: 1s;
         align-self: flex-start;
+
+        &__open {
+            height: 40px;
+            border-bottom: 1px solid var(--color-accent);
+            transition: 0 0;
+        }
 
         &__icon {
             font-size: 20px;
@@ -139,7 +140,7 @@ function playActiveAnimation() {
 
     &__open {
         display: flex;
-        padding: .8rem 1rem;
+        padding: .8rem 2rem;
         flex-direction: column;
         backdrop-filter: blur(10px);
         opacity: 1;
@@ -159,10 +160,6 @@ function playActiveAnimation() {
         }
     }
 
-    &__division-line {
-        border-bottom: 1px solid var(--color5);
-    }
-
     &__font-size {
         display: flex;
         flex-direction: column;
@@ -173,17 +170,17 @@ function playActiveAnimation() {
             align-self: center;
             width: 90%;
             border-radius: 50px;
-            background-color: var(--primary);
+            background-color: var(--color-border);
             outline: none;
             border: 1px solid transparent;
 
             &:focus {
-                border-color: var(--color5);
+                border-color: var(--color-accent);
             }
 
             &::selection {
                 color: var(--primary);
-                background-color: var(--color4);
+                background-color: var(--color-text-primary);
             }
         }
     }
@@ -196,24 +193,49 @@ function playActiveAnimation() {
         &__itens {
             display: flex;
             border-radius: 8px;
+            align-items: center;
+            justify-content: ce;
             padding-inline-start: .8rem;
 
             &:hover {
-                background-color: var(--color5);
+                background-color: var(--color-bg);
             }
 
-            & label,
             & input {
                 padding: 0.4rem;
                 cursor: pointer;
             }
-        }
-    }
 
-    & label {
-        display: inline-block;
-        margin-left: 0.5rem;
-        flex-grow: 1;
+            &__label {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 16px;
+                height: 40px;
+                cursor: pointer;
+                margin-left: 0.5rem;
+                width: 100%;
+                flex-wrap: nowrap;
+
+                &--radio {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 100%;
+                    border: 1px solid var(--secondary);
+
+                    & .active-font {
+                        display: inline-block;
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 100%;
+                        background-color: var(--color-text-primary);
+                    }
+                }
+            }
+        }
     }
 
     &__main-btn {
@@ -223,16 +245,19 @@ function playActiveAnimation() {
         align-items: center;
         justify-content: center;
         border-radius: 50px;
-        border: 1px solid var(--color5);
         margin: auto;
-        transition: 500ms;
+        transition: background-color, border-color 500ms;
 
         & span {
             z-index: 2;
         }
 
-        &:hover {
-            border-color: var(--color4);
+        &:not([disabled]) {
+            border: 1px solid var(--color-accent);
+        }
+
+        &:not([disabled]):hover {
+            border-color: var(--color-text-primary);
         }
 
         & .active-button-animation {
@@ -240,7 +265,7 @@ function playActiveAnimation() {
             height: 0px;
             border-radius: 50px;
             position: absolute;
-            background-color: var(--color5);
+            background-color: var(--color-hover);
             transition: 150ms ease-out;
             backdrop-filter: blur(20px);
 
@@ -249,7 +274,15 @@ function playActiveAnimation() {
             animation-timing-function: ease-out;
             animation-fill-mode: backwards;
         }
+
+        &:disabled {
+            background-color: #f0f0f0;
+            color: #555;
+            border: 1px solid #ccc;
+            cursor: not-allowed;
+        }
     }
+
 }
 
 @keyframes active-options-button {

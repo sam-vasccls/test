@@ -19,7 +19,7 @@
 <style lang="scss" scoped>
 .overlay {
     position: absolute;
-    background-color: var(--loading);
+    background-color: var(--loading-opacity);
     width: 100%;
     height: 100%;
     backdrop-filter: blur(10px);

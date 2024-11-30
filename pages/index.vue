@@ -1,5 +1,5 @@
 <template>
-    <section id="word-counter" class="word-counter__wrapper flex">
+    <div id="word-counter" class="word-counter__wrapper">
 
         <UserOptions :isOptionsOpen="isOptionsOpen" @toggle:options="openOptions" @apply:styles="applyStyles" />
 
@@ -20,19 +20,23 @@
                     'word-counter__textarea',
                     isDarkTheme ? 'light-textarea' : 'dark-textarea',
                 ]" v-model="writtenText">
-            </textarea>
+                </textarea>
             <div class="word-counter__cta-wrapper">
                 <button class="main-btn secondary" @click="loadText">Load Text</button>
-                <!-- <button class="main-btn secondary" title="Saves the text and exports it as a PDF File!" @click="savePDF">Save as PDF</button> -->
                 <button class="main-btn" @click="saveText">
                     Save Text Locally
                 </button>
             </div>
         </div>
-        <article class="random-scene-creator__wrapper">
-            <button class="main-btn" @click="getRandomConcepts(goal, obstacle, resolution)"> Generate Random Scene for a
-                Story</button> <br>
-            <div class="random-scene-creator__scenes" v-show="Array.isArray(randomStoryCreator)">
+        <article class="random-scene-generator">
+            <button class="main-btn" @click="getRandomConcepts(goal, obstacle, resolution)">
+                <h3 class="random-scene-generator__title">
+                    Generate Random Scene
+                    for a
+                    Story
+                </h3>
+            </button>
+            <div class="random-scene-generator__scenes" v-show="Array.isArray(randomStoryCreator)">
                 <span>
                     Goal: {{ randomStoryCreator[0] }} <br>
                 </span>
@@ -44,7 +48,7 @@
                 </span>
             </div>
         </article>
-    </section>
+    </div>
 </template>
 
 <script setup>
@@ -88,7 +92,6 @@ function loadText() {
 
 const fontFamily = ref('Noto Sans')
 const fontSize = ref(14)
-const isOptionsOpen = ref(false)
 
 // Noto+Sans
 const userStyles = ref({
@@ -101,10 +104,6 @@ function applyStyles(styles) {
         fontFamily: styles[0].value,
         fontSize: `${styles[1].value}px`,
     }
-}
-
-function openOptions() {
-    isOptionsOpen.value = !isOptionsOpen.value
 }
 
 // RANDOM SCENE GENERATOR ------------------------------------------------
@@ -133,42 +132,17 @@ const resolution = ["Good outcome", "Unexpected outcome", "Bad outcome", "Doubt"
 </script>
 
 <style lang="scss" scoped>
-.random-scene-creator {
-    &__wrapper {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 350px;
-        top: 50%;
-        bottom: 50%;
-        right: 30px;
-
-        & button {
-            background-color: var(--color3);
-        }
-    }
-
-    &__scenes {
-        padding: .8rem .8rem;
-        border-radius: 8px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        background-color: var(--color3);
-    }
-}
-
 .word-counter {
     &__wrapper {
         width: 100%;
-        height: 100%;
         display: flex;
+        flex-direction: column;
+        gap: 100px;
         background-color: var(--primary);
         color: var(--secondary);
         justify-content: center;
-        align-items: flex-start;
-        padding-top: 3rem;
+        align-items: center;
+        padding-block: 3rem;
     }
 
     &__content-wrapper {
@@ -213,19 +187,19 @@ const resolution = ["Good outcome", "Unexpected outcome", "Bad outcome", "Doubt"
         border-radius: 8px;
         border: 1px solid transparent;
         min-width: 800px;
-        height: calc(100% - 50px);
-        background-color: var(--color3);
+        min-height: 450px;
+        background-color: var(--color-bg);
         outline: none;
-        color: var(--color4);
-        resize: horizontal;
+        color: var(--color-text-primary);
+        resize: both;
         font-weight: 300;
 
         &:focus {
-            border: 1px solid var(--color5);
+            border: 1px solid var(--color-accent);
         }
 
         &::placeholder {
-            color: $n60;
+            color: $gray60;
             font-style: italic;
             font-weight: 300;
             opacity: 1;
@@ -233,8 +207,30 @@ const resolution = ["Good outcome", "Unexpected outcome", "Bad outcome", "Doubt"
 
         &::selection {
             color: var(--primary);
-            background-color: var(--color4);
+            background-color: var(--color-text-primary);
         }
+    }
+}
+
+.random-scene-generator {
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    &__title {
+        font-size: 24px;
+        padding-bottom: 2rem;
+    }
+
+    &__scenes {
+        padding: .8rem .8rem;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background-color: var(--color-bg);
     }
 }
 </style>
