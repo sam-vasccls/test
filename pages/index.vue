@@ -1,10 +1,12 @@
 <template>
     <div id="word-counter" class="word-counter__wrapper">
 
-        <UserOptions :isOptionsOpen="isOptionsOpen" @toggle:options="openOptions" @apply:styles="applyStyles" />
+        <UserOptions class="user-options" :isOptionsOpen="isOptionsOpen" @toggle:options="openOptions"
+            @apply:styles="applyStyles" />
 
-        <ThemeDropdown />
+        <ThemeDropdown class="theme-dropdown" />
 
+        <!-- <WritingSpace :wordCount="wordCount" :isDarkTheme="isDarkTheme" /> -->
         <div class="word-counter__content-wrapper">
             <h1>Writing Haven</h1>
             <div class="word-counter__quantity-wrapper">
@@ -34,6 +36,7 @@
                     Generate Random Scene
                     for a
                     Story
+                    <Icon name="material-symbols:ads-click" />
                 </h3>
             </button>
             <div class="random-scene-generator__scenes" v-show="Array.isArray(randomStoryCreator)">
@@ -62,10 +65,6 @@ definePageMeta({
 const textStore = useWrittenTextStore()
 const writtenText = ref("");
 const isDarkTheme = ref(false);
-
-const textSavedInStore = computed(() => {
-    return textStore.$getText
-})
 
 const wordCount = computed(() => {
     if (writtenText) {
@@ -132,6 +131,13 @@ const resolution = ["Good outcome", "Unexpected outcome", "Bad outcome", "Doubt"
 </script>
 
 <style lang="scss" scoped>
+.user-options {
+    @media (max-width: $desktop) {
+        left: 10px;
+        top: 10px;
+    }
+}
+
 .word-counter {
     &__wrapper {
         width: 100%;
@@ -147,6 +153,14 @@ const resolution = ["Good outcome", "Unexpected outcome", "Bad outcome", "Doubt"
 
     &__content-wrapper {
         height: 80%;
+
+        @media (max-width: $widescreen) {
+            padding-top: 1rem;
+        }
+
+        @media (max-width: $desktop) {
+            padding-top: 3rem;
+        }
     }
 
     &__cta-wrapper {
@@ -220,6 +234,9 @@ const resolution = ["Good outcome", "Unexpected outcome", "Bad outcome", "Doubt"
     justify-content: flex-start;
 
     &__title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
         font-size: 24px;
         padding-bottom: 2rem;
     }

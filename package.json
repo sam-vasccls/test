@@ -10,10 +10,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/icon": "^1.8.2",
+    "@nuxt/icon": "^1.9.0",
     "@pinia/nuxt": "^0.5.1",
     "eslint": "^9.5.0",
-    "jspdf": "^2.5.1",
     "nuxt": "^3.12.1",
     "pinia": "^2.1.7",
     "vue": "^3.4.27",

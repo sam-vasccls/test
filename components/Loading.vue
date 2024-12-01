@@ -18,7 +18,7 @@
 
 <style lang="scss" scoped>
 .overlay {
-    position: absolute;
+    position: fixed;
     background-color: var(--loading-opacity);
     width: 100%;
     height: 100%;

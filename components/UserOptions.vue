@@ -146,6 +146,7 @@ function playActiveAnimation() {
         opacity: 1;
         gap: 1rem;
         border-radius: 8px;
+        // transition: 0;
     }
 
     &__closed {
